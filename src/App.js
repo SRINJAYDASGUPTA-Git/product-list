@@ -1,9 +1,14 @@
-import logo from "./logo.svg";
+import React, { useEffect, useState } from "react";
 import "./App.css";
+import ProductList from "./components/ProductList";
+import { fetchFromAPI } from "./api/fetchFromAPI";
+const fakeProd = await fetchFromAPI("products");
 
 function App() {
   return (
-    <h1 className="text-3xl font-bold underline">Hello world! Product List</h1>
+    <div className="text-center text-lg p-1 ">
+      <ProductList products={fakeProd} />
+    </div>
   );
 }
 
