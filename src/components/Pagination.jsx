@@ -13,27 +13,48 @@ const Pagination = ({
   }
 
   return (
-    <div className="flex gap-2 cursor-pointer items-center justify-center">
+    <div className="flex gap-2 cursor-pointer items-center justify-center mt-5">
       <button
         onClick={() => {
-          if (currentPage > 1) {
-            paginate(currentPage - 1);
-            window.scrollTo({ top: 0, behavior: "smooth" });
-          }
+          if (currentPage > 1) paginate(currentPage - 1);
+          else paginate(pageNumbers.at(pageNumbers.length - 1));
+          window.scrollTo({ top: 0, behavior: "smooth" });
         }}
       >
         Previous
       </button>
       {pageNumbers.map((number) => (
-        <span key={number} onClick={() => paginate(number)}>
-          {number}
-        </span>
+        <div key={number}>
+          {number === currentPage ? (
+            <span
+              onClick={() => {
+                paginate(number);
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }}
+              className="border border-black"
+            >
+              {number}
+            </span>
+          ) : (
+            <span
+              onClick={() => {
+                paginate(number);
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }}
+            >
+              {number}
+            </span>
+          )}
+        </div>
       ))}
       <button
         onClick={() => {
           if (currentPage < pageNumbers.length) {
             paginate(currentPage + 1);
+          } else {
+            paginate(1);
           }
+          window.scrollTo({ top: 0, behavior: "smooth" });
         }}
       >
         Next

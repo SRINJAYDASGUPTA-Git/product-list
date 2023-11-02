@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Product from "./Product";
 import Filters from "./Filters";
 import Pagination from "./Pagination";
+import { fetchFromAPI } from "../api/fetchFromAPI";
 
 const ProductList = ({ products }) => {
   const [filteredProducts, setFilteredProducts] = useState(products);
@@ -12,17 +13,21 @@ const ProductList = ({ products }) => {
     setFilteredProducts(products);
   }, [products]);
 
-  const handleCategoryChange = (category) => {
+  const handleCategoryChange = async (category) => {
     const newFilteredProducts =
       category === "all"
         ? products
-        : products.filter((product) => product.category === category);
+        : await fetchFromAPI(`products/category/${category}`);
     setFilteredProducts(newFilteredProducts);
     setCurrentPage(1);
   };
 
   const handleSortChange = (sortType) => {
     const sortedProducts = [...filteredProducts];
+    if (sortType === "filter") {
+      setFilteredProducts(sortedProducts);
+      return;
+    }
     sortedProducts.sort((a, b) =>
       sortType === "lowToHigh" ? a.price - b.price : b.price - a.price
     );
