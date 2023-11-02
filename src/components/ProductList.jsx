@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import Product from "./Product";
 import Filters from "./Filters";
 import Pagination from "./Pagination";
-import { fetchFromAPI } from "../api/fetchFromAPI";
+import { fetchFromAPI } from "../utils/fetchFromAPI";
+import { Link } from "react-router-dom";
 
 const ProductList = ({ products }) => {
   const [filteredProducts, setFilteredProducts] = useState(products);
@@ -54,7 +55,9 @@ const ProductList = ({ products }) => {
       />
       <div className="flex gap-10 flex-wrap space-between justify-center items-center w-full">
         {currentProducts.map((product) => (
-          <Product key={product.id} product={product} />
+          <Link to={`/product/${product.id}`}>
+            <Product key={product.id} product={product} />
+          </Link>
         ))}
       </div>
       <Pagination

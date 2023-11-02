@@ -31,7 +31,7 @@ const Pagination = ({
                 paginate(number);
                 window.scrollTo({ top: 0, behavior: "smooth" });
               }}
-              className="border border-black"
+              className="border border-black p-1 w-2 rounded-md "
             >
               {number}
             </span>
@@ -41,6 +41,7 @@ const Pagination = ({
                 paginate(number);
                 window.scrollTo({ top: 0, behavior: "smooth" });
               }}
+              className="p-1 w-2 rounded-md "
             >
               {number}
             </span>
