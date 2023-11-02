@@ -1,7 +1,6 @@
 import React from "react";
 import { fetchFromAPI } from "../utils/fetchFromAPI";
 const categories = await fetchFromAPI("products/categories");
-console.log(categories);
 const Filters = ({ onCategoryChange, onSortChange }) => {
   return (
     <div className="filters">

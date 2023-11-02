@@ -48,15 +48,15 @@ const ProductList = ({ products }) => {
 
   return (
     <div>
-      <h1 className="text-3xl">Product List</h1>
+      <h1 className="text-3xl">Our Products</h1>
       <Filters
         onCategoryChange={handleCategoryChange}
         onSortChange={handleSortChange}
       />
       <div className="flex gap-10 flex-wrap space-between justify-center items-center w-full">
         {currentProducts.map((product) => (
-          <Link to={`/product/${product.id}`}>
-            <Product key={product.id} product={product} />
+          <Link key={product.id} to={`/product/${product.id}`}>
+            <Product product={product} />
           </Link>
         ))}
       </div>
