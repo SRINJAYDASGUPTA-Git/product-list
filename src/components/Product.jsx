@@ -22,6 +22,7 @@ const Product = ({ product }) => {
             width: { xs: "100%", sm: "358px", md: "320px" },
             height: 180,
             objectFit: "contain",
+            padding: "10px",
           }}
         />
         <CardContent>
