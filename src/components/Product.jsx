@@ -12,7 +12,7 @@ const Product = ({ product }) => {
         sx={{
           borderRadius: 7,
         }}
-        className="xs:w-[75%] sm:w-[358px] md:w-[320px] flex flex-wrap w-full items-center justify-center mt-10  "
+        className="xs:w-[75%] sm:w-[358px] md:w-[320px] flex flex-wrap w-full items-center justify-center mt-10 bg-stone-400 min-w-[300px]"
       >
         <CardMedia
           component="img"

@@ -9,7 +9,7 @@ function App() {
   return (
     <BrowserRouter>
       <Navbar />
-      <div className="text-center text-lg p-1 ">
+      <div className="text-center text-lg p-1 bg-stone-400 text-[#3d3b38] ">
         <Routes>
           <Route path="/" exact element={<ProductList products={fakeProd} />} />
           <Route path="/product/:id" element={<ProductDetail />} />

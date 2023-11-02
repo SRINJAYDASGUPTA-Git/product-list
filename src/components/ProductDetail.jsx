@@ -9,8 +9,8 @@ const ProductDetail = () => {
   console.log(product.rating.rate);
 
   return (
-    <div className="product_details-container">
-      <div className="product_details-card shadow-xl shadow-slate-600">
+    <div className="product_details-container ">
+      <div className="product_details-card shadow-xl shadow-slate-600 bg-white">
         <img
           src={product.image}
           alt={product.title}
